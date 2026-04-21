@@ -8,4 +8,4 @@ Projeto em Python com Flask simulando operações bancárias:
 Tecnologias:
 - Python
 - Flask
-- SQLite
+- SQL/ PostgreSQL
