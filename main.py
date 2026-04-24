@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 from contas import Conta
 import hashlib
-from db import inserir_usuario
+from conexao_banco_de_dados import inserir_usuario
 import datetime
 
 app = Flask(__name__)
