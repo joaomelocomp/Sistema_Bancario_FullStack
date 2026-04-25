@@ -3,7 +3,7 @@ from psycopg2 import Error
 import os
 from dotenv import load_dotenv
 load_dotenv()
-from ferramentas import codificar
+from utilidades import codificar
 
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_PORT = os.getenv("DB_PORT")

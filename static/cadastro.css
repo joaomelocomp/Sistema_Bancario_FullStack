@@ -13,6 +13,8 @@ body {
 .main_frame {
     display: flex;
 
+    height: 100vh;
+
     justify-content: center;
     align-items: center;
 }
@@ -33,10 +35,13 @@ body {
     flex-direction: column;
     
     justify-content: center;
-    align-content: center;
+    align-items: center;
 
     height: 450px;
     width: 250px;
+
+    background: linear-gradient(30deg, rgb(0, 0, 0), rgb(0, 110, 255));
+    padding: 24px;
 }
 
 input {
@@ -57,6 +62,10 @@ input {
     text-transform: capitalize;
 }
 
+input::placeholder {
+    color: #F5F5F5;
+}
+
 .btn {
     display: flex;
     flex-direction: column;
@@ -72,7 +81,8 @@ input {
 
     margin: 2px;
 
-    background-color: rgb(201, 201, 201);
+    background-color: #F5F5F5;
+    border-radius: 8px;
 
     transition: 0.5s;
 }

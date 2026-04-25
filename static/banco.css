@@ -12,7 +12,8 @@ body {
 }
 
 .imagem_login {
-    display: flex;
+    position: relative;
+    display: inline-block;
     
     margin: 0px;
 
@@ -33,6 +34,19 @@ body {
 .imagem_login:hover {
     width: 65%;
     transition: 0.5s;
+}
+
+.texto {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+
+    width: 100vh;
 }
 
 .login {

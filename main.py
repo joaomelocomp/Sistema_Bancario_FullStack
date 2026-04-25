@@ -3,7 +3,7 @@ from contas import Conta
 from conexao_banco_de_dados import inserir_usuario, ver_dados
 import datetime
 import psycopg2
-from ferramentas import codificar
+from utilidades import codificar, validar_senha
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -32,10 +32,11 @@ def conta():
             return 'CPF inválido'
         
         senha = request.form.get('senha')
-        if len(senha) >= 6:
+
+        if validar_senha(senha) == True:
             senha = codificar(senha)
         else:
-            return 'Senha inválida'
+            return "Erro ao cadastrar usuário. Senha inválida."
 
         if inserir_usuario(nome, email, cpf, senha):
             return redirect(url_for('home'))
@@ -43,8 +44,6 @@ def conta():
             return "Erro ao cadastrar usuário. Tente novamente."
 
     return render_template('cadastro.html')
-
-from flask import request, render_template, redirect, url_for, session
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
@@ -56,7 +55,7 @@ def login():
 
         if user:
             nome = user[0]
-            session['usuario'] = nome  # salva o nome
+            session['usuario'] = nome
             return redirect(url_for('entrada'))
         else:
             return 'Entrada inválida'
